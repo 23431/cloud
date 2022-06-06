@@ -50,7 +50,8 @@ const ScrollViewer = forwardRef((props: PropsWithChildren<ScrollProps>, ref: Scr
             bounce: {
                 top: bounceTop,
                 bottom: bounceBottom
-            }
+            },
+            useTransition:false,
         })
         setBScroll(scroll)
 

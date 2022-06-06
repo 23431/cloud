@@ -1,6 +1,6 @@
 import { getCount } from "../../utils"
 import { ListWrapper, Lists, ListItem } from "./style"
-
+import musicPng from '../../assets/music.png'
 type RecommendProps = {
     id: number,
     picUrl: string,
@@ -19,7 +19,10 @@ export const List = (props: { list: RecommendList }) => {
                 list.map(item => (<ListItem key={item.id}>
                     <div className="img_wrapper">
                         <div className="decorate" />
-                        <img src={item.picUrl + "?param=300*300"} width="100%" height="100%" alt="" />
+                        {/* <LazyLoad placeholder={<img width="100%" height="100%" src={musicPng} />}> */}
+                            <img src={item.picUrl + "?param=300*300"} width="100%" height="100%" alt="" />
+                        {/* </LazyLoad> */}
+
                         <div className="play_count">
                             <i className="iconfont play">&#xe885;</i>
                             <span className="count">{getCount(item.playCount)}</span>

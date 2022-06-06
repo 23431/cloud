@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { defaultStyle } from "../../assets/globalStyle";
 
-export const SliderContainer  = styled.div`
+export const SliderContainer = styled.div`
 
     position: relative;
     box-sizing: border-box;
@@ -11,8 +11,8 @@ export const SliderContainer  = styled.div`
     background: white;
     .before{
         position: absolute;
-        top: 0;
-        height: 60%;
+        top: -300px;
+        height: 400px;
         width: 100%;
         background: ${defaultStyle['theme-color']};
     }

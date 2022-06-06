@@ -1,20 +1,8 @@
 import styled from "@emotion/styled"
-import { useEffect, useState } from "react"
 import ScrollViewer from "../../baseUI/scroll"
-import { List, RecommendList } from "../../components/recommendList"
+import { List } from "../../components/recommendList"
 import { Slider } from "../../components/slider"
-import { SliderList } from "../../components/slider"
-import { Get } from "../../http"
-
-type BannerResult = {
-    code: number,
-    banners: SliderList
-}
-
-type RecommendResult = {
-    code: number,
-    result: RecommendList
-}
+import { useLoadData } from "./hooks"
 
 export const Content = styled.div`
 
@@ -27,20 +15,7 @@ export const Content = styled.div`
 
 export const Recommend = () => {
 
-    const [bannerList, SetBannerList] = useState<SliderList>([])
-    const [recommendList, setRecommnedList] = useState<RecommendList>([])
-    useEffect(() => {
-
-        Get<BannerResult>('/banner').then(r => {
-            if (r.code === 200) SetBannerList(r.banners)
-        }).catch(e => { })
-
-        Get<RecommendResult>('/personalized').then(r => {
-            if (r.code === 200) setRecommnedList(r.result)
-
-        }).catch(() => { })
-
-    }, [])
+    const { bannerList, recommendList } = useLoadData()
 
     return <Content>
         <ScrollViewer>
